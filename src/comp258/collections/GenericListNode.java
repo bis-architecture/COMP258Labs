@@ -6,7 +6,7 @@ package comp258.collections;
 
 /**
  * A node that stores a generic item.
- * 
+ *
  * @author antoi
  * @param <T> The type of data stored in the node
  */
@@ -32,4 +32,23 @@ public class GenericListNode<T extends Comparable<T>> {
     public void setData(T item) {
         data = item;
     }
+
+    // Print this node and the following nodes in order
+    public void printList() {
+        System.out.println(data);
+
+        if (nextNode != null) {
+            nextNode.printList();
+        }
+    }
+
+    // Print this node and the following nodes in reverse
+    public void printBackwards() {
+        if (nextNode != null) {
+            nextNode.printBackwards();
+        }
+
+        System.out.println(data);
+    }
+
 }

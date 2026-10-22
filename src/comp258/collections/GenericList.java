@@ -55,6 +55,24 @@ public class GenericList<T extends Comparable<T>> {
         }
     }
 
+    // Print all items in the list using recursion
+    public void printRecursive() {
+        if (items == null) {
+            System.out.println("List is empty.");
+        } else {
+            items.printList();
+        }
+    }
+
+    // Print all items in reverse using recursion
+    public void printBackwards() {
+        if (items == null) {
+            System.out.println("List is empty.");
+        } else {
+            items.printBackwards();
+        }
+    }
+
     // Move current back to the first item
     public void start() {
 

@@ -31,12 +31,12 @@ public abstract class ConsoleProgram {
 
             choice = showMenu();
 
-            if (choice != QUIT_OPTION) {
+            if (choice != getQuitOption()) {
 
                 executeAction(choice);
             }
 
-        } while (choice != QUIT_OPTION);
+        } while (choice != getQuitOption());
 
         endProgram();
     }

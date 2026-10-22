@@ -19,18 +19,17 @@ public class LabLauncher extends ConsoleProgram {
     public void startProgram() {
 
         System.out.println("=== COMP 258 Lab Launcher ===");
-
     }
 
     @Override
     public int showMenu() {
 
         System.out.println();
-        System.out.println("1. Random Number Program");
-        System.out.println("2. Array Manager");
-        System.out.println("3. Linked List Program");
-        System.out.println("4. Generic List App");
-        System.out.println("0. Exit");
+        System.out.println("1. Manage data with ArrayManager");
+        System.out.println("2. Manage data with LinkedList");
+        System.out.println("3. Manage data with GenericLinkedList");
+        System.out.println("4. Showcase Recursive Functions");
+        System.out.println("5. Exit");
 
         return readInt("Enter choice: ");
     }
@@ -41,19 +40,19 @@ public class LabLauncher extends ConsoleProgram {
         switch (choice) {
 
             case 1:
-                currentProgram = new RandomNumberProgram();
-                break;
-
-            case 2:
                 currentProgram = new ArrayManagerDriver();
                 break;
 
-            case 3:
+            case 2:
                 currentProgram = new LinkedListProgram();
                 break;
 
-            case 4:
+            case 3:
                 currentProgram = new ComparableWidgetProgram();
+                break;
+
+            case 4:
+                currentProgram = new RecursiveFunctionsProgram();
                 break;
 
             default:
@@ -63,5 +62,12 @@ public class LabLauncher extends ConsoleProgram {
 
         // Run the selected program
         currentProgram.run();
+    }
+
+    // Use option 5 to exit the launcher
+    @Override
+    public int getQuitOption() {
+
+        return 5;
     }
 }
