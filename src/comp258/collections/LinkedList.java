@@ -183,6 +183,42 @@ public class LinkedList {
         }
     }
 
+    //Remove all items that match o
+    public void removeAllOccurances(Object o) {
+
+        ListNode temp = items;
+        ListNode previous = null;
+
+        while (temp != null) {
+
+            if (temp.getData() == o || (o != null && o.equals(temp.getData()))) {
+
+                //If the first item is being removed
+                if (previous == null) {
+                    items = temp.nextNode;
+                } else {
+
+                    //Skip over the matching item
+                    previous.nextNode = temp.nextNode;
+                }
+
+                //Move current if its item is being removed
+                if (current == temp) {
+                    current = temp.nextNode;
+                }
+            } else {
+                previous = temp;
+            }
+
+            temp = temp.nextNode;
+        }
+
+        //Use the last remaining item if current was removed at the end
+        if (current == null) {
+            current = previous;
+        }
+    }
+
     //Get an item at a specific position
     public Object getItemAt(int position) {
 

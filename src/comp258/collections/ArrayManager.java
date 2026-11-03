@@ -19,7 +19,7 @@ public class ArrayManager {
     //Constructors
     /**
      * Creates an empty ArrayManager. Set count to 0 and create an items array
-     * with a capacity of 10.
+     * with a capacity of 10
      */
     public ArrayManager() {
         items = new int[10];
@@ -27,9 +27,8 @@ public class ArrayManager {
     }
 
     /**
-     * Creates an empty ArrayManager with an items array of the specified
-     * capacity. Set count to 0.
-     *
+     * Creates an empty ArrayManager with an items array of the specified capacity 
+     * Set count to 0
      * @param capacity
      */
     public ArrayManager(int capacity) {
@@ -49,25 +48,25 @@ public class ArrayManager {
     }
 
     //Methods
-    //Returns the number of items currently stored in the ArrayManager. 
+    //Returns the number of items currently stored in the ArrayManager 
     public int size() {
         return count;
     }
 
-    //Displays all items currently stored in the ArrayManager.
+    //Displays all items currently stored in the ArrayManager
     public void print() {
         for (int i = 0; i < count; i++) {
             System.out.println(i + ": " + items[i]);
         }
     }
 
-    //Adds n to the end of the items currently stored in the ArrayManager. 
+    //Adds n to the end of the items currently stored in the ArrayManager
     public void add(int n) {
         items[count] = n;
         count++;
     }
 
-    //Removes the item at index pos.
+    //Removes the item at index pos
     public void remove(int pos) throws NoItemsException {
 
         if (isEmpty()) {
@@ -79,6 +78,30 @@ public class ArrayManager {
         }
 
         count--;
+    }
+
+    //Removes all items that match o
+    public void removeAllOccurances(Object o) {
+
+        if (o == null) {
+            return;
+        }
+
+        for (int i = 0; i < count; i++) {
+
+            if (o.equals(items[i])) {
+
+                //Move the remaining items one position to the left
+                for (int j = i; j < count - 1; j++) {
+                    items[j] = items[j + 1];
+                }
+
+                count--;
+
+                //Check the item that moved into this position
+                i--;
+            }
+        }
     }
 
     // Adds n at idex position
